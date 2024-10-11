@@ -18,8 +18,8 @@
 #include <stdlib.h>  // 标准库
 #include <string.h>  // 字符串处理库
 
-#define MAX_STUDENT 1000  // 最大工兵鼠数量
-#define NAME_LENGTH 50    // 最长名字长度
+#define MAX_STUDENT 1000  // 定义最大工兵鼠数量
+#define NAME_LENGTH 50    // 定义最长名字长度
 
 // 定义学生结构体
 typedef struct {
