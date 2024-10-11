@@ -78,7 +78,7 @@ int main() {
     }
     return 0;
 }
-
+//显示菜单哈
 void menu() {
     printf("\n\n");
     printf("\t\t_____________________________________________________________\n");
@@ -97,7 +97,7 @@ void menu() {
     printf("\t\t||                                                           ||\n");
     printf("\t\t||___________________________________________________________\n");
 }
-
+//加载文件数据
 void load_data() {
     FILE* file = fopen("students.data", "r");  // 以只读方式打开名为students.data的文件
     if (file == NULL) {
@@ -108,21 +108,21 @@ void load_data() {
     fread(students, sizeof(Student), current_student, file);  // 从文件中读取工兵的相关数据
     fclose(file);  // 关闭文件
 }
-
+//保存数据至文件
 void save_data() {
     FILE* file = fopen("students.data", "w");  // 以只写方式打开文件
     fwrite(&current_student, sizeof(int), 1, file);  // 向文件中写入工兵数量
     fwrite(students, sizeof(Student), current_student, file);  // 向文件中写入工兵相关数据
     fclose(file);  // 关闭文件
 }
-
-void display_students() {  // 显示所有工兵鼠鼠的信息
+//显示所有工兵鼠的信息
+void display_students() {  
     for (i = 0; i < current_student; i++) {  // 遍历数组
         printf("学号：%d, 姓名：%s，年龄：%d, 班级：%s\n", students[i].id, students[i].name, students[i].age, students[i].class_name);  // 输出信息
     }
 }
-
-void add_student() {  // 添加新兵蛋子
+//添加新兵蛋子
+void add_student() {  
     if (current_student >= MAX_STUDENT) {  // 检查鼠鼠数量是否已满
         printf("学生已满员！\n");  // 提示信息
         return;
@@ -137,8 +137,8 @@ void add_student() {  // 添加新兵蛋子
     scanf("%s", students[current_student].class_name);  // 获取班级
     current_student++;  // 学生数量加一
 }
-
-void delete_student() {  // 删除工兵鼠信息
+//删除工兵鼠的信息
+void delete_student() {  
     int id;  // 要删除的学号
     printf("输入要删除的学生学号：\n");  // 输入要删除的学号
     scanf("%d", &id);  // 获取要删除的学号
@@ -154,8 +154,8 @@ void delete_student() {  // 删除工兵鼠信息
     }
     printf("没有该学生的信息！\n");  // 输入不存在的学号时提示信息
 }
-
-void modify_student() {  // 修改工兵鼠信息
+//修改工兵鼠的信息
+void modify_student() {  
     int id;  // 要修改的鼠鼠的学号
     printf("请输入你要修改的学生学号：\n");  // 输入要修改的学号
     scanf("%d", &id);  // 获取学号
@@ -173,8 +173,8 @@ void modify_student() {  // 修改工兵鼠信息
     }
     printf("没有找到该学生的信息。\n");
 }
-
-void search_student() {  // 查找某位鼠
+//查找某位鼠
+void search_student() {  
     char name[NAME_LENGTH];  // 输入要查找的姓名
     printf("请输入您要查询的学生姓名：\n");  // 输入姓名
     scanf("%s", name);  // 获取姓名
@@ -186,8 +186,8 @@ void search_student() {  // 查找某位鼠
     }
     printf("没有找到该学生的信息。\n");
 }
-
-void sort_students() {  // 排序工兵信息
+//排序工兵信息
+void sort_students() {  
     int m = 0;  // 工兵数量临时变量
     FILE* file;  // 文件指针
     if ((file = fopen("students.data", "r")) == NULL) {  // 以只读方式打开文件
