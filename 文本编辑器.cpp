@@ -52,7 +52,6 @@ void push(Stack *stack, char ch);                 //声明函数用于插入字�
 char pop(Stack *stack);                           //声明函数用于删除字符
 void copy_to_clipboard(Stack *stack);             //声明函数用于复制栈中的内容到剪切板
 void paste_from_clipboard(Stack *stack);          //声明函数用于从剪切板中粘贴内容到栈
-char peek(Stack *stack);                          //声明函数用于查看栈顶元素
 void display(Stack*stack);                        //显示栈内容
 void initEditor(TextEditor *editor);              //声明函数用于初始化文本编辑器
 void insert_Char(TextEditor *editor, char ch);     //声明函数用于插入字符
@@ -113,14 +112,6 @@ void paste_from_clipboard(Stack *stack) {
     for (int i = 0; clipboard[i] != '\0'; i++) {
         push(stack, clipboard[i]);
     }
-}
-
-// 查看栈顶元素
-char peek(Stack *stack) {
-    if (!isEmpty(stack)) {  // 如果栈不为空
-        return stack->data[stack->top];  // 返回栈顶元素
-    }
-    return '\0';  // 如果栈为空，返回空字符
 }
 
 //显示栈中内容
