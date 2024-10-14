@@ -131,7 +131,7 @@ void attention(){
 }
 //加载文件数据
 void load_data() {
-    FILE* file = fopen("students.data", "r");  // 以只读方式打开名为students.data的文件
+    FILE* file = fopen("students.data", "rb");  // 以二进制读方式打开名为students.data的文件
     if (file == NULL) {       //判断是否打开文件失败
         printf("好可惜，文件打开失败...\n");
         return;
@@ -142,7 +142,7 @@ void load_data() {
 }
 //保存数据至文件
 void save_data() {
-    FILE* file = fopen("students.data", "w");  // 以只写方式打开文件
+    FILE* file = fopen("students.data", "wb");  // 以二进制写方式打开文件
     if (file == NULL) {                 //判断是否打开文件失败
         printf("好可惜，文件打开失败...\n");
         return;
