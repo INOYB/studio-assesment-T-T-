@@ -265,29 +265,29 @@ int main() {
         switch (choice) {  // 根据用户输入执行相应操作
             case 'w':  // 如果输入'w'
                 move_up();  // 向上移动
-                break;  // 结束当前case
+                break;  
             case 'a':  // 如果输入'a'
                 move_left();  // 向左移动
-                break;  // 结束当前case
+                break; 
             case 's':  // 如果输入's'
                 move_down();  // 向下移动
-                break;  // 结束当前case
+                break;  
             case 'd':  // 如果输入'd'
                 move_right();  // 向右移动
-                break;  // 结束当前case
+                break;  
             case 'u':  // 如果输入'u'
                 undo();  // 撤销上一步操作
-                break;  // 结束当前case
+                break;  
             case 'b':  // 如果输入'b'
                 return 0;  // 退出程序
             case 'p':  // 如果输入'p'
                 save_game("savefile.dat");  // 保存游戏进度到文件
-                break;  // 结束当前case
+                break; 
             case 'l':  // 如果输入'l'
                 load_game("savefile.dat");  // 从文件加载游戏进度
-                break;  // 结束当前case
+                break; 
             default:  // 如果输入无效
-                printf("Invalid command. Please try again.\n");  // 提示用户输入无
+                printf("请输入正确操作符号，不要点错咯.\n");  // 提示用户输入无效
         }
     }
     return 0;  // 返回0，表示程序正常结束
