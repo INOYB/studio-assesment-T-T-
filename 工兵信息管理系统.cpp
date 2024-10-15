@@ -131,6 +131,7 @@ void attention(){
 }
 //加载文件数据
 void load_data() {
+    const char *filename = "students.data";//定义一个指向字符串"student.data"的指针，用以指定文件的位置，进而用来打开文件
     FILE* file = fopen("students.data", "rb");  // 以二进制读方式打开名为students.data的文件
     if (file == NULL) {       //判断是否打开文件失败
         printf("好可惜，文件打开失败...\n");
@@ -142,6 +143,7 @@ void load_data() {
 }
 //保存数据至文件
 void save_data() {
+    const char *filename = "students.data";//定义一个指向字符串"student.data"的指针，用以指定文件的位置，进而用来打开文件
     FILE* file = fopen("students.data", "wb");  // 以二进制写方式打开文件
     if (file == NULL) {                 //判断是否打开文件失败
         printf("好可惜，文件打开失败...\n");
