@@ -234,20 +234,35 @@ void print_board() {
 }
 
 int main() {
-    char command;  // 定义一个字符变量用于存储用户输入的命令
+    char choice;  // 定义一个字符变量用于存储用户输入的命令
     init_board();  // 初始化游戏板
+
+    printf("\n\n");
+    printf("\t\t________________________________________________\n");
+    printf("\t\t||===================操作说明==================||\n");
+    printf("\t\t||================1.w为向上移动================||\n");
+    printf("\t\t||================2.a为向左移动================||\n");
+    printf("\t\t||================3.s为向下移动================||\n");
+    printf("\t\t||================4.d为向右移动================||\n");
+    printf("\t\t||================5.u为撤销上一步操作===========||\n");
+    printf("\t\t||================6.b为退出游戏================||\n");
+    printf("\t\t||================7.p为存档====================||\n");
+    printf("\t\t||================8.l加载游戏进度===============||\n");
+    printf("\t\t________________________________________________\n");
+    
     while (1) {  // 无限循环，直到游戏结束
         print_board();  // 打印当前游戏板和分数
         if (is_game_over() == 1) {  // 检查游戏是否胜利
-            printf("You win!\n");  // 如果胜利，打印胜利信息
+            printf("太dio辣!膜拜膜拜佬，游戏成功！\n");  // 如果胜利，打印胜利信息
             break;  // 退出循环
         } else if (is_game_over() == -1) {  // 检查游戏是否失败
-            printf("Game over!\n");  // 如果失败，打印失败信息
+            printf("很可惜，游戏失败，继续努力吧!\n");  // 如果失败，打印失败信息
             break;  // 退出循环
         }
-        printf("Enter command (w/a/s/d to move, u to undo, q to quit, p to save, l to load): ");  // 提示用户输入命令
-        scanf(" %c", &command);  // 读取用户输入的命令
-        switch (command) {  // 根据用户输入的命令执行相应操作
+        
+        printf("请输入你的行动:\n");//其4实这一步提示不知道有什么必要哈（真正的游戏都是直接操作），放在这里是为了显得scanf没那么孤单……
+        scanf(" %c", &choice);  // 读取用户输入的指令
+        switch (choice) {  // 根据用户输入执行相应操作
             case 'w':  // 如果输入'w'
                 move_up();  // 向上移动
                 break;  // 结束当前case
@@ -263,7 +278,7 @@ int main() {
             case 'u':  // 如果输入'u'
                 undo();  // 撤销上一步操作
                 break;  // 结束当前case
-            case 'q':  // 如果输入'q'
+            case 'b':  // 如果输入'b'
                 return 0;  // 退出程序
             case 'p':  // 如果输入'p'
                 save_game("savefile.dat");  // 保存游戏进度到文件
@@ -272,9 +287,8 @@ int main() {
                 load_game("savefile.dat");  // 从文件加载游戏进度
                 break;  // 结束当前case
             default:  // 如果输入无效
-                printf("Invalid command. Please try again.\n");  // 提示用户输入无效
+                printf("Invalid command. Please try again.\n");  // 提示用户输入无
         }
-        add_random_tile();  // 在空位置添加一个随机数
     }
     return 0;  // 返回0，表示程序正常结束
 }
