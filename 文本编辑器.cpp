@@ -286,10 +286,10 @@ int main() {
                 print_Text(&editor);//打印当前文本内容
                 break;
             case 5:            //选择复制内容至剪贴板
-                copy_to_clipboard(&editor.textStack);//复制文本内容到剪贴板
+                copy_to_clipboard(&editor.text);//复制文本内容到剪贴板
                 break;
             case 6:            //选择从剪贴板粘贴内容
-                paste_from_clipboard(&editor.textStack);//从剪贴板粘贴内容
+                paste_from_clipboard(&editor.text);//从剪贴板粘贴内容
                 break;
             case 7:            //选择退出
                 exit(0);       //退出程序
